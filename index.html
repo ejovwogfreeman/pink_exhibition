@@ -68,6 +68,7 @@
   </head>
 
   <body data-spy="scroll" data-target=".navbar" data-offset="51">
+    <div class="timer" id="timer"></div>
     <!-- Navbar Start -->
     <nav
       class="navbar fixed-top shadow-sm navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5"
@@ -144,7 +145,7 @@
                     class="text-uppercase font-weight-normal text-white m-0"
                     style="letter-spacing: 2px"
                   >
-                    The biggest tradefair event in Ebonyi State
+                    The Carnival Experience
                   </h3>
                 </div>
               </div>
@@ -214,7 +215,7 @@
           >
             <img
               class="position-absolute w-100 h-100"
-              src="img/pinkex4.jpg"
+              src="img/pinkex5.jpg"
               style="object-fit: cover"
             />
             <div
@@ -243,7 +244,7 @@
           >
             <img
               class="position-absolute w-100 h-100"
-              src="img/pinkex5.jpg"
+              src="img/pinkex4.jpg"
               style="object-fit: cover"
             />
             <div
@@ -418,7 +419,7 @@
           <div class="col-md-6 p-0" style="min-height: 400px">
             <img
               class="position-absolute w-100 h-100"
-              src="img/pink1.jpg"
+              src="img/pink2.jpg"
               style="object-fit: cover"
             />
           </div>
@@ -427,7 +428,7 @@
           <div class="col-md-6 p-0" style="min-height: 400px">
             <img
               class="position-absolute w-100 h-100"
-              src="img/pink2.jpg"
+              src="img/pink3.jpg"
               style="object-fit: cover"
             />
           </div>
@@ -499,7 +500,7 @@
               </div>
             </div>
             <div class="col-md-6 text-center text-md-left">
-              <img class="img-fluid ml-md-3" src="img/pink_cat2.jpg" alt="" />
+              <img class="img-fluid ml-md-3" src="img/mims4.jpg" alt="" />
             </div>
           </div>
           <div class="row">
@@ -977,7 +978,7 @@
           >
             MARYANN OMEGE (MIMS)
           </h6>
-          <h1 class="font-secondary display-4">Convernor, Pink Exhibition</h1>
+          <h1 class="font-secondary display-4">Convener, Pink Exhibition</h1>
           <i class="far fa-heart text-dark"></i>
         </div>
         <div class="row justify-content-center">
@@ -1075,7 +1076,7 @@
       </div>
       <div class="owl-carousel gallery-carousel">
         <div class="gallery-item">
-          <img class="img-fluid w-100" src="img/partner1.jpg" alt="" />
+          <img class="img-fluid w-100 bg-light" src="img/partner1.jpg" alt="" />
           <a href="img/partner1.jpg" data-lightbox="gallery">
             <i class="fa fa-2x fa-plus text-white"></i>
           </a>
@@ -1099,7 +1100,7 @@
           </a>
         </div>
         <div class="gallery-item">
-          <img class="img-fluid w-100 bg-light" src="img/partner5.jpg" alt="" />
+          <img class="img-fluid w-100" src="img/partner5.jpg" alt="" />
           <a href="img/partner5.jpg" data-lightbox="gallery">
             <i class="fa fa-2x fa-plus text-white"></i>
           </a>
@@ -1280,7 +1281,7 @@
           &copy;
           <a class="text-primary" href="https://pinkexhibition.com"
             >#PinkExhibition_5.0</a
-          >. Designed & Developeed by
+          >. Designed & Developed by
           <a class="text-primary" href="https://codefestuniversity.online"
             >Codefest</a
           >
@@ -1314,7 +1315,7 @@
       .vendor-modal {
         position: fixed;
         z-index: 1000;
-        bottom: 20px;
+        bottom: 55px;
         left: 20px;
         width: 280px;
         background: white;
@@ -1362,6 +1363,17 @@
         color: white;
         text-decoration: none;
       }
+
+      .timer {
+        text-align: center;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        z-index: 1000000000000;
+        background-color: #121f38;
+        color: white;
+        padding: 10px;
+      }
     </style>
 
     <div class="vendor-modal" id="vendorModal">
@@ -1394,6 +1406,34 @@
           modal.classList.remove("show");
         });
       });
+
+      // Set the target date
+      const targetDate = new Date("2025-10-22T00:00:00");
+
+      // Update the timer every second
+      setInterval(() => {
+        const now = new Date();
+        const timeRemaining = targetDate - now;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor(
+          (timeRemaining % (1000 * 60 * 60)) / (1000 * 60)
+        );
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        // Display the timer
+        console.log(
+          `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`
+        );
+
+        document.getElementById(
+          "timer"
+        ).innerText = `${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`;
+      }, 1000);
     </script>
   </body>
 </html>
